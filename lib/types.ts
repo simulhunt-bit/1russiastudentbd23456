@@ -1,0 +1,3 @@
+export type Language = "en" | "bn" | "ru";
+export type Category = "embassy_visa" | "university_admission" | "scholarship" | "flight_travel" | "student_life" | "important_notice" | "bangladesh_russia" | "russia_news" | "international_news";
+export type Announcement = { id:string; title_original:string; summary_original:string|null; title_en:string; summary_en:string; title_bn:string|null; summary_bn:string|null; title_ru:string|null; summary_ru:string|null; source_name:string; source_url:string; source_host:string; source_language:string; category:Category; image_url:string|null; published_at:string|null; fetched_at:string; verification_status:"source_verified"|"needs_review"; status:"published"|"hidden"; };

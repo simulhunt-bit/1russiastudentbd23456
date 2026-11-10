@@ -1,0 +1,4 @@
+create type verification_status as enum ('source_verified','needs_review');
+create type announcement_status as enum ('published','hidden');
+create table announcements (id uuid primary key default gen_random_uuid(), fingerprint text unique not null, title_original text not null, summary_original text, title_en text not null, summary_en text not null, title_bn text, summary_bn text, title_ru text, summary_ru text, source_name text not null, source_url text not null, source_host text not null, source_language text not null, category text not null, published_at timestamptz, fetched_at timestamptz not null default now(), verification_status verification_status not null default 'needs_review', status announcement_status not null default 'hidden', created_at timestamptz not null default now());
+create index announcements_status_fetched_idx on announcements(status,fetched_at desc); create index announcements_category_idx on announcements(category);
